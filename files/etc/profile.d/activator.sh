@@ -1,1 +1,1 @@
-export PATH=$PATH:/opt/activator
+export PATH=$PATH:/opt/activator/bin

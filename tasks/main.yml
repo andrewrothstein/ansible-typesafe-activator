@@ -1,22 +1,22 @@
 ---
-- stat: path='/opt/activator-dist-{{ typesafe_activator_version }}'
+- stat: path='/opt/activator-dist-{{ lightbend_activator_version }}'
   register: activatordir
   
 - name: Download Typesafe Activator
   when: activatordir.stat.exists == false
-  get_url: url={{ typesafe_activator_url }} dest="/tmp/{{ typesafe_activator_archive }}"
+  get_url: url={{ lightbend_activator_url }} dest="/tmp/{{ lightbend_activator_archive }}"
 
 - name: Unzip Typesafe Activator
   when: activatordir.stat.exists == false
-  unarchive: copy=no src='/tmp/{{ typesafe_activator_archive }}' dest=/opt
+  unarchive: copy=no src='/tmp/{{ lightbend_activator_archive }}' dest=/opt
 
 - name: make executable
   file: >-
-    path='/opt/activator-dist-{{typesafe_activator_version}}/activator'
+    path='/opt/activator-dist-{{lightbend_activator_version}}/bin/activator'
     mode=0755
   
 - name: Link Typesafe Activator
-  file: src='/opt/activator-dist-{{ typesafe_activator_version }}' dest=/opt/activator state=link
+  file: src='/opt/activator-dist-{{ lightbend_activator_version }}' dest=/opt/activator state=link
 
 - name: include activator in the PATH
   copy: >-

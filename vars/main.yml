@@ -1,4 +1,4 @@
 ---
-typesafe_activator_name : "typesafe-activator-{{ typesafe_activator_version }}"
-typesafe_activator_archive : "{{typesafe_activator_name}}.zip"
-typesafe_activator_url : "{{typesafe_activator_mirror}}/{{ typesafe_activator_version }}/{{ typesafe_activator_archive }}"
+lightbend_activator_name : "lightbend-activator-{{ lightbend_activator_version }}"
+lightbend_activator_archive : "{{lightbend_activator_name}}.zip"
+lightbend_activator_url : "{{lightbend_activator_mirror}}/{{ lightbend_activator_version }}/{{ lightbend_activator_archive }}"
