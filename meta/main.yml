@@ -12,13 +12,18 @@ galaxy_info:
         - 7
     - name: Fedora
       versions:
-        - 21
+        - 23
+        - 24
+        - 25
     - name: Ubuntu
       versions:
         - trusty
+        - xenial
 
-  categories:
+  galaxy_tags:
     - development
 
-dependencies: []
+dependencies:
+  - role: andrewrothstein.java-oracle-jdk
+    version: v1.0.2
   

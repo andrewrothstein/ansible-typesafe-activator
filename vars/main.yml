@@ -1,4 +1,8 @@
 ---
-lightbend_activator_name : "lightbend-activator-{{ lightbend_activator_version }}"
-lightbend_activator_archive : "{{lightbend_activator_name}}.zip"
-lightbend_activator_url : "{{lightbend_activator_mirror}}/{{ lightbend_activator_version }}/{{ lightbend_activator_archive }}"
+lightbend_activator_name : lightbend-activator-{{lightbend_activator_version}}
+lightbend_activator_zip : '{{lightbend_activator_name}}.zip'
+
+# https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12.zip
+lightbend_activator_url : '{{lightbend_activator_mirror}}/{{lightbend_activator_version}}/{{lightbend_activator_zip}}'
+
+lightbend_activator_install_dir: '{{lightbent_activator_install_parent_dir}}/activator-dist-{{lightbend_activator_version}}'

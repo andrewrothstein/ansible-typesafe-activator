@@ -1,27 +1,42 @@
 ---
-- stat: path='/opt/activator-dist-{{ lightbend_activator_version }}'
-  register: activatordir
-  
-- name: Download Typesafe Activator
-  when: activatordir.stat.exists == false
-  get_url: url={{ lightbend_activator_url }} dest="/tmp/{{ lightbend_activator_archive }}"
+- name: download...
+  become: yes
+  become_user: root
+  get_url:
+    url: '{{lightbend_activator_url}}'
+    dest: /tmp/{{lightbend_activator_zip}}
 
-- name: Unzip Typesafe Activator
-  when: activatordir.stat.exists == false
-  unarchive: copy=no src='/tmp/{{ lightbend_activator_archive }}' dest=/opt
+- name: unzip...
+  become: yes
+  become_user: root
+  unarchive:
+    copy: no
+    src: /tmp/{{lightbend_activator_archive}}
+    dest: '{{lightbend_activator_install_parent_dir}}'
+    creates: '{{lightbend_activator_install_dir}}'
 
-- name: make executable
-  file: >-
-    path='/opt/activator-dist-{{lightbend_activator_version}}/bin/activator'
-    mode=0755
+- name: make executable...
+  become: yes
+  become_user: root
+  file:
+    path: '{{lightbend_activator_install_dir}}/bin/activator'
+    mode: 0755
   
-- name: Link Typesafe Activator
-  file: src='/opt/activator-dist-{{ lightbend_activator_version }}' dest=/opt/activator state=link
+- name: link...
+  become: yes
+  become_user: root
+  file:
+    src: '{{lightbend_activator_install_dir}}'
+    dest: '{{lightbend_activator_install_parent_dir}}/activator'
+    state: link
 
 - name: include activator in the PATH
-  copy: >-
-    src=etc/profile.d/activator.sh
-    dest=/etc/profile.d/activator.sh
-    mode=0644
-    owner=root
-    group=root
+  become: yes
+  become_user: root
+  with_items:
+    - f: activator.sh
+      d: /etc/profile.d
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: 0644
