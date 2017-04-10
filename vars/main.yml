@@ -1,5 +1,5 @@
 ---
-lightbend_activator_name : lightbend-activator-{{lightbend_activator_version}}
+lightbend_activator_name : typesafe-activator-{{lightbend_activator_version}}
 lightbend_activator_zip : '{{lightbend_activator_name}}.zip'
 
 # https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12.zip
