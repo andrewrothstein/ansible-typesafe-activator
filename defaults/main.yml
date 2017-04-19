@@ -1,5 +1,5 @@
 ---
-lightbend_activator_version : "1.3.12"
+lightbend_activator_version : '1.3.12'
 lightbend_activator_checksum: 3740355ce4d4c099b9349704dc5851341e731981b25094b7b7dcefe7eceff530
 lightbend_activator_mirror : http://downloads.typesafe.com/typesafe-activator
 
