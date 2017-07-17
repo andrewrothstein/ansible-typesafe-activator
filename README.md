@@ -1,8 +1,8 @@
-[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-typesafe-activator.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-typesafe-activator)
 andrewrothstein.typesafe-activator
 ===========================
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-typesafe-activator.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-typesafe-activator)
 
-A role for installing [Lightbend's Activator](http://www.lightbend.com/community/core-tools/activator-and-sbt).
+Installs [Lightbend's Activator](http://www.lightbend.com/community/core-tools/activator-and-sbt).
 
 Requirements
 ------------
